@@ -262,3 +262,4 @@ struct CategoryQuizListView: View {
     QuizListView()
         .environmentObject(QuizService())
 }
+

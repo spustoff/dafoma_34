@@ -242,3 +242,4 @@ struct DetailedAchievementCard: View {
     AchievementsView()
         .environmentObject(QuizService())
 }
+

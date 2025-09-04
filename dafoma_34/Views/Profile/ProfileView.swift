@@ -115,11 +115,13 @@ struct ProfileView: View {
     private var statsOverview: some View {
         VStack(alignment: .leading, spacing: 16) {
             Text("Your Stats")
-                .font(.system(.title2, design: .rounded))
-                .font(.system(.headline, design: .rounded).weight(.bold))
+                .font(.system(.title2, design: .rounded).weight(.bold))
                 .foregroundColor(.textPrimary)
             
-            LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: 2), spacing: 16) {
+            LazyVGrid(
+                columns: Array(repeating: GridItem(.flexible()), count: UIDevice.current.userInterfaceIdiom == .pad ? 4 : 2), 
+                spacing: 16
+            ) {
                 StatCard(
                     title: "Quizzes Completed",
                     value: "\(quizService.userProgress.completedQuizzes.count)",
@@ -335,3 +337,4 @@ struct AchievementCard: View {
     ProfileView()
         .environmentObject(QuizService())
 }
+

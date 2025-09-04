@@ -135,8 +135,7 @@ struct QuizPlayView: View {
                     // Question type and points
                     HStack {
                         Text(question.type.rawValue.replacingOccurrences(of: "_", with: " ").capitalized)
-                            .font(.system(.caption, design: .rounded))
-                            .font(.system(.headline, design: .rounded).weight(.semibold))
+                            .font(.system(.caption, design: .rounded).weight(.semibold))
                             .foregroundColor(.primaryButton)
                             .padding(.horizontal, 12)
                             .padding(.vertical, 4)
@@ -148,15 +147,13 @@ struct QuizPlayView: View {
                         Spacer()
                         
                         Text("\(question.points) points")
-                            .font(.system(.caption, design: .rounded))
-                            .font(.system(.headline, design: .rounded).weight(.semibold))
+                            .font(.system(.caption, design: .rounded).weight(.semibold))
                             .foregroundColor(.highlightBackground)
                     }
                     
                     // Question text
                     Text(question.text)
-                        .font(.system(.title2, design: .rounded))
-                        .font(.system(.headline, design: .rounded).weight(.semibold))
+                        .font(.system(UIDevice.current.userInterfaceIdiom == .pad ? .title : .title2, design: .rounded).weight(.semibold))
                         .foregroundColor(.textPrimary)
                         .multilineTextAlignment(.leading)
                         .fixedSize(horizontal: false, vertical: true)
@@ -354,3 +351,4 @@ struct AnswerOptionButton: View {
     ))
     .environmentObject(QuizService())
 }
+

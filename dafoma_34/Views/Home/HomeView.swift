@@ -148,11 +148,13 @@ struct HomeView: View {
     private var categoriesView: some View {
         VStack(alignment: .leading, spacing: 15) {
             Text("Categories")
-                .font(.system(.title2, design: .rounded))
-                .font(.system(.headline, design: .rounded).weight(.bold))
+                .font(.system(.title2, design: .rounded).weight(.bold))
                 .foregroundColor(.textPrimary)
             
-            LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: 2), spacing: 15) {
+            LazyVGrid(
+                columns: Array(repeating: GridItem(.flexible()), count: UIDevice.current.userInterfaceIdiom == .pad ? 4 : 2), 
+                spacing: 15
+            ) {
                 ForEach(QuizCategory.allCases, id: \.self) { category in
                     CategoryCard(category: category) {
                         selectedCategory = category
@@ -241,3 +243,4 @@ struct CategoryCard: View {
     HomeView()
         .environmentObject(QuizService())
 }
+

@@ -379,3 +379,4 @@ struct FinancialTipDetailView: View {
     FinancialTipsView()
         .environmentObject(QuizService())
 }
+

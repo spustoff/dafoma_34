@@ -339,3 +339,4 @@ struct LeaderboardRow: View {
     LeaderboardView()
         .environmentObject(QuizService())
 }
+
