@@ -47,20 +47,20 @@ struct OnboardingView: View {
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
             
             // Custom page indicator
-            VStack {
-                Spacer()
-                
-                HStack(spacing: 8) {
-                    ForEach(pages.indices, id: \.self) { index in
-                        Circle()
-                            .fill(index == currentPage ? Color.highlightBackground : Color.white.opacity(0.5))
-                            .frame(width: 8, height: 8)
-                            .scaleEffect(index == currentPage ? 1.2 : 1.0)
-                            .animation(.easeInOut(duration: 0.3), value: currentPage)
-                    }
-                }
-                .padding(.bottom, 100)
-            }
+//            VStack {
+//                Spacer()
+//                
+//                HStack(spacing: 8) {
+//                    ForEach(pages.indices, id: \.self) { index in
+//                        Circle()
+//                            .fill(index == currentPage ? Color.highlightBackground : Color.white.opacity(0.5))
+//                            .frame(width: 8, height: 8)
+//                            .scaleEffect(index == currentPage ? 1.2 : 1.0)
+//                            .animation(.easeInOut(duration: 0.3), value: currentPage)
+//                    }
+//                }
+//                .padding(.bottom, 100)
+//            }
         }
     }
     
